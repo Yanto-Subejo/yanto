@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 # coding=utf-8
-# coding by Yanto Subejo
+# coding by Romi Afrizal
 # Note : jangan di ubah lagi! nanti error, script udah enak
 # Open source code team | ngotak dikit cok jangan jual di perjual belikan 
 
@@ -10,12 +10,12 @@ ingfo = (
 """%s
  • Info script :
  	
- - author      : Yanto
- - facebook    : facebook.com/vigo.ambar
+ - author      : Romi Afrizal
+ - facebook    : facebook.com/romi.afrizal.102
  - fanspage    : facebook.com/100022086172556
- - whatsap     : +627791008799
- - github      : github.com/Yanto-Subejo
- - script name : ZWI (Zona Wibu Indonesia)
+ - whatsap     : +6282371648186
+ - github      : github.com/Mark-Zuck
+ - script name : ZAFI (Zona Akun Facebook Indonesia)
  - version     : 1.1
  
 %s"""%(Hj,Mt))
@@ -54,7 +54,7 @@ def folder():
 	try:os.mkdir('data')
 	except:pass
 	try:
-		ua_ = 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X)AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1'
+		ua_ = 'Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]'
 		open("data/ua.txt","w").write(ua_)
 	except:
 		pass
@@ -62,7 +62,7 @@ def folder():
 IP = requests.get("https://api.ipify.org/").text
 def banner():
 	print (''' %s 
- ™ YANTO%s \n __________       _____.__  \n \____    /____ _/ ____\__| %s> %Zona \n   /     /\\__  \\\   __\|  | %s> %sPara \n  /     /_ / __ \|  |  |  | %s>%s Wibu \n /_______ (____  /__|  |__| %s>%s Indonesia \n         \/    \/ \n %s[%s*%s] By : %sVigo Safar Ambara \n %s[%s*%s] -------------------------------------- \n [%s*%s] IP : %s%s'''%
+ © Group%s \n __________       _____.__  \n \____    /____ _/ ____\__| %s> %sZona \n   /     /\\__  \\\   __\|  | %s> %sWibu \n  /     /_ / __ \|  |  |  | %s>%s Tolol \n /_______ (____  /__|  |__| %s>%s Indonesia \n         \/    \/ \n %s[%s*%s] By : %sVigo Safar Ambara \n %s[%s*%s] -------------------------------------- \n [%s*%s] IP : %s%s'''%
  (H,K,H,K,H,K,H,K,H,K,P,K,P,H,P,K,P,K,P,H,IP))
 # MASUK TOKEN (TOKEN LISTRIK)
 header = {"x-fb-connection-bandwidth": str(random.randint(20000000.0, 30000000.0)), "x-fb-sim-hni": str(random.randint(20000, 40000)), "x-fb-net-hni": str(random.randint(20000, 40000)), "x-fb-connection-quality": "EXCELLENT", "x-fb-connection-type": "cell.CTRadioAccessTechnologyHSDPA", "user-agent": "NokiaC3-00/5.0 (07.20) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 AppleWebKit/420+ (KHTML, like Gecko) Safari/420+ ;]", "content-type": "application/x-www-form-urlencoded", "x-fb-http-engine": "Liger"}
