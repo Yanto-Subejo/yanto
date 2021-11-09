@@ -14,8 +14,8 @@ ingfo = (
  - facebook    : facebook.com/romi.afrizal.102
  - fanspage    : facebook.com/100022086172556
  - whatsap     : +6282371648186
- - github      : github.com/Mark-Zuck
- - script name : ZAFI (Zona Akun Facebook Indonesia)
+ - github      : github.com/Yanto-Subejo
+ - script name : Mark Kontol
  - version     : 1.1
  
 %s"""%(Hj,Mt))
