@@ -54,7 +54,7 @@ def folder():
 	try:os.mkdir('data')
 	except:pass
 	try:
-		ua_ = 'Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]'
+		ua_ = 'Mozilla/5.0 (iPhone; CPU iPhone OS 10_3 like Mac OS X) AppleWebKit/602.1.50 (KHTML, like Gecko) CriOS/56.0.2924.75 Mobile/14E5239e Safari/602.1
 		open("data/ua.txt","w").write(ua_)
 	except:
 		pass
@@ -83,7 +83,7 @@ def masuk():
             open('token.txt', 'w').write(romz);login_xx()
             exec(base64.b64decode('b3Muc3lzdGVtKCd4ZGctb3BlbiBodHRwczovL3d3dy5mYWNlYm9vay5jb20vcm9taS5hZnJpemFsLjEwMicpO21lbnUoKQ=='))
         except (KeyError,IOError):
-        	print("%s [!] Token invalid "%(M));masuk()
+        	print("%s [!] Selamat Kamu Di Prank Mark Zuckerberg "%(M));masuk()
     elif rom in ('2', '02'):
     	print ("\n%s%s Berikut cara nya :"%(H,til));jeda(2)
         print (" - siapkan akun facebook (wajib akun tumbal)");jeda(2)
@@ -97,7 +97,7 @@ def masuk():
         print (" - jika sudah jangan lupa di salin \n");jeda(2)
         nanya = raw_input('%s [?] Anda paham? [%sy%s/%sn%s] :%s '%(P,H,P,M,P,K))
         if nanya in(""):
-        	print ("%s [!] saya bertanya wajib di jawab "%(M));jeda(2);masuk()
+        	print ("%s [!] Selamat Anda Dapat Gip Alok "%(M));jeda(2);masuk()
         elif nanya in("y","Y"):
         	print ("\n%s [√] selamat anda pintar :* "%(H));jeda(2);masuk()
         elif nanya in("n","N"):
@@ -124,7 +124,7 @@ def publik(romz,headers=header):
         for a in z['friends']['data']:
             id.append(a['id'] + '<=>' + a['name'])
             bff.write(a['id'] + '<=>' + a['name'] + '\n')
-            print '\r%s [*] mengumpulkan id :%s %s ' % (P,H,str(len(id))),
+            print '\r%s [*] mengumpulkan pemain Bokep :%s %s ' % (P,H,str(len(id))),
             sys.stdout.flush();jeda(0.0050)
         bff.close()
         print ('\n\n %s[%s√%s] Succes dump id dari %s%s'%(P,H,P,H,nm['name']))
@@ -132,7 +132,7 @@ def publik(romz,headers=header):
         raw_input('\n%s [ %senter %s] '%(P,K,P))
         menu()
     except Exception as e:
-        exit('\n %s[!] gagal dump id'%(P))
+        exit('\n %s[!] PERTEMANAN DIPRIVATE TOLOL'%(P))
 # DUMP FOLLOWERS
 def followers(romz,headers=header):
     try:
