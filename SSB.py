@@ -163,32 +163,119 @@ def dump_massal():
 		print(f'>>{k} Pertemanan Tidak Public {x}')
 		time.sleep(3)
 		back()
-# DUMP POSTINGAN 
-def postingan(romz,headers=header):
-    try:
-        os.mkdir('dump')
-    except:pass
-    try:
-    	print ("\n%s [%s!%s] Perlu di ingat postingan wajib publik "%(P,M,P))
-        idt = raw_input(' [*] Id post   : %s'%(K))
-        simpan = raw_input(' %s[?] Nama file : %s'%(P,K))
-        r = requests.get('https://graph.facebook.com/%s?fields=name,likes.fields(id,name).limit(999999)&access_token=%s'%(idt,romz))
-        id = []
-        z = json.loads(r.text)
-        file = ('dump/' + simpan + '.json').replace(' ', '_')
-        bff = open(file, 'w')
-        for a in z['likes']['data']:
-            id.append(a['id'] + '<=>' + a['name'])
-            bff.write(a['id'] + '<=>' + a['name'] + '\n')
-            print '\r%s [*] mengumpulkan id :%s %s ' % (P,H,str(len(id))),
-            sys.stdout.flush();jeda(0.0050)
-        bff.close()
-        print ('\n\n %s[%s√%s] Succes dump id postingan '%(P,H,P))
-        print ('%s [%s√%s] File dump tersimpan :%s %s '%(P,H,P,H,file))
-        raw_input('\n%s [ %senter %s] '%(P,K,P))
-        menu()
-    except Exception as e:
-        exit('\n %s[!] gagal dump id'%(P))
+#------------------[ CRACK-GRUP ]-----------------#
+balmond = b+"["+h+"✓"+b+"]"
+
+def lah():
+	print(f'\n{x}>> Total Idz Yang Terkumpul :{h} %s '%(len(id)))
+	input(f'{x}>> [ {m}Klik Enter {x}] ')
+	print('')
+	pass
+	setting()
+def grup():
+	print('')
+	id = input(f'{x}>> Masukkan Username Atau Idz Grup : ')
+	ua = 'Mozilla/5.0 (SymbianOS/9.3; Series60/3.2 NokiaE52-1/052.003; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.6.2 3gpp-gba'
+	miskinlu = {"user-agent": ua}
+	url = "https://mbasic.facebook.com/groups/"+id
+	ses = requests.Session()
+	try:
+		gn = parser(ses.get(url, headers=miskinlu).text, 'html.parser')
+	except requests.exceptions.ConnectionError:
+		print('>> Sinyal Loo Kek Kontol ')
+		time.sleep(0.5)
+		exit()
+	berr = gn.find("title")
+	berr2 = berr.text.replace(" | Facebook","").replace(" Grup Publik","")
+	if berr2=='Masuk Facebook':
+		print(" Terkena Limit, Silahkan Mode Pesawat Dan Coba Lagi..")
+		time.sleep(0.5)
+		grup()
+	elif berr2=='Kesalahan':
+		alvino_xy('>> Grup Tidak Di Temukan ')
+		time.sleep(0.5)
+		grup()
+	else:pass
+	print(f'{x}>> Nama Grup : {b}%s'%(berr2))
+	ggs = gn.find_all('table')
+	ang = []
+	for ff in ggs:
+		anggo = ff.text
+		bro = anggo.replace('Anggota','')
+		try:
+			mex = int(bro)
+			jumlah = ang.append(mex)
+		except:
+			pass
+	if len(ang)==0:
+		print(" Anggota : -")
+	else:
+		print(f'{x}>> Anggota : {h}%s'%(ang[0]))
+	grup1(url)
+def grup1(urls):
+	use = []
+	ses = requests.Session()
+	print(f'{x}>> Sedang Mengumpulkan Idz ')
+	print(f'>> Klik {k}Ctrl+C{x} Untuk {m}Stop{x} Dump !!')
+	while True:
+		try:
+			ua = 'Mozilla/5.0 (SymbianOS/9.3; Series60/3.2 NokiaE52-1/052.003; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Version/3.0 BrowserNG/7.2.6.2 3gpp-gba'
+			miskinlu = {"user-agent": ua}
+			try:
+				url = use[0]
+			except:
+				url = urls
+			set = parser(ses.get(url, headers=miskinlu).text, "html.parser")
+			bf2 = set.find_all('a')
+			for g in bf2:
+				css = str(g).split('>')
+				if 'Lihat Postingan Lainnya</span' in css:
+					bcj = str(g).replace('<a href="','').replace('amp;','')
+					bcj2 = bcj.split(' ')[0].replace('"><img','')
+			tes = set.find_all('table')
+			for cari in tes:
+				liatnih = cari.text
+				spl = liatnih.split(' ')
+				if 'mengajukan' in spl:
+					idsiapa = re.findall('content_owner_id_new.\w+',str(cari))
+					idyou =	idsiapa[0].replace('content_owner_id_new.','')
+					namayou = liatnih.replace(' mengajukan pertanyaan .','')
+					idku = idyou+'|'+namayou
+					if idku in id:
+						continue
+					else:
+						id.append(idku)
+						print(("\r"+balmond+h+" { "+k+"Proses Mengambil ID "+str(len(id))+h+" }"), end="");sys.stdout.flush()
+				elif '>' in spl:
+					idsiapa = re.findall('content_owner_id_new.\w+',str(cari))
+					idyou =	idsiapa[0].replace('content_owner_id_new.','')
+					namayou = liatnih.split(' > ')[0]
+					idku = idyou+'|'+namayou
+					if idku in id:
+						continue
+					else:
+						id.append(idku)
+						xy = random.choice([m,k,h,u,b,x])
+						print(f'\r	———>> {x}({xy} %s {x}) <<———'%(len(id)), end="");sys.stdout.flush()
+				else:
+					continue
+			try:
+				link_ = bcj2
+				use.insert(0,'https://mbasic.facebook.com'+link_)
+			except:
+				girang = set.find('title')
+				girang2 = girang.text.replace(" | Facebook","").replace(" Grup Publik","")
+				if girang2=='Masuk Facebook':
+					pass
+				else:
+					lah()
+		except requests.exceptions.ConnectionError:
+			try:
+				time.sleep(31)
+			except KeyboardInterrupt:
+				lah()
+		except KeyboardInterrupt:
+			lah()
         
 # START CRACK
 class ngentod:
